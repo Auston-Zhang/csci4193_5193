@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://www.figma.com/proto/PreQipZvjzDP8iKMzrVflz/FoodX?node-id=169%3A183&scaling=min-zoom"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          FoodX
-        </a>
-      </header>
-    </div>
-  );
+import 'font-awesome/css/font-awesome.css';
+
+import './global.scss';
+
+import Landing from './components/page/Landing';
+import SignIn from './components/SignIn';
+import SignUp from './components/SignUp';
+
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <Router>
+          <Switch>
+            <Route exact path="/" component={Landing} />
+            
+            <Route path="/signin" component={SignIn} />
+            <Route path="/signup" component={SignUp} />
+            <Footer />
+          </Switch>
+        </Router>
+      </div>
+    );
+  }
 }
 
 export default App;
